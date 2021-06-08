@@ -219,6 +219,9 @@ async function calUserPower(userAddress, userAmount) {
     for (let key in userAmount) {
         totalTime += calUserTimes(key, userAmount[key]);
     }
+    if (totalTime >= 4000) {
+        totalTime = 4000;
+    }
     let r = calculateScore(userAddress, totalTime);
     result['result'] = r['result'];
     result['power'] = r['power'];
